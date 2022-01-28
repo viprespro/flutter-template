@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/layout.dart';
+import 'package:flutter_template/script.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +30,14 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+Widget getElevatedButton(ctx, target, title) {
+  return ElevatedButton(
+      onPressed: () {
+        Navigator.push(ctx, MaterialPageRoute(builder: (ctx) => target));
+      },
+      child: Text('$title'));
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -56,12 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline4,
             ),
             const SizedBox(height: 10),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Layout()));
-                },
-                child: const Text('layout'))
+            getElevatedButton(context, const Layout(), 'layout'),
+            getElevatedButton(context, const Script(), 'script')
           ],
         ),
       ),
