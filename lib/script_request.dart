@@ -35,6 +35,7 @@ class _ScriptRequestState extends State<ScriptRequest> {
       ),
       body: Center(
           child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
             onPressed: () {
